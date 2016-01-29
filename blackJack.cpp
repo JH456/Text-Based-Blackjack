@@ -20,7 +20,7 @@ using namespace std;
 // Constant arrays used when drawing the cards.
 const char *vals[] = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J",
     "Q", "K"};
-const char *suits[] = {"♠", "♥", "♦", "♣"};
+const char *suits[] = {"\u2660", "\u2665", "\u2666", "\u2663"};
 
 // Struct prototypes for the Card and Hand struct.
 struct Card;
@@ -187,35 +187,35 @@ void printCards(Hand* hand, int n = 52, int segmentNumber = 0) {
 
 	int i = 0;
 
-	cout << "║ ";
+	cout << "\u2551 ";
 
 	while (card != NULL && i < n) {
 		switch (segmentNumber) {
 			case 0:
-				cout << "╔═══╗";
+				cout << "\u2554\u2550\u2550\u2550\u2557";
 				break;
 			case 1:
-				cout << "║" << suits[card->suit]
+				cout << "\u2551" << suits[card->suit]
                     << (strlen(vals[card->faceVal]) < 2 ? " " : "")
-                    << vals[card->faceVal] << "║";
+                    << vals[card->faceVal] << "\u2551";
 				break;
 			case 2:
-				cout << "║   ║";
+				cout << "\u2551   \u2551";
 				break;
 			case 3:
-				cout << "║" << vals[card->faceVal]
+				cout << "\u2551" << vals[card->faceVal]
                     << (strlen(vals[card->faceVal]) < 2 ? " " : "")
-                    << suits[card->suit] << "║";
+                    << suits[card->suit] << "\u2551";
 				break;
 			default:
-				cout << "╚═══╝";
+				cout << "\u255A\u2550\u2550\u2550\u255D";
 		}
 		card = card->next; i++;
 	}
 
 	for (int j = 0; j < 60 - (5 * i); j++) cout << " ";
 
-	cout << " ╠╣";
+	cout << " \u2560\u2563";
 
 	cout << endl;
 
@@ -312,12 +312,36 @@ void play() {
 		int dealerSum = sumHand(dealerHand);
 
 		// Prints out cards, game table, and numerical values of hands.
-		cout << "╔══════════════════════════════════════════════════════════════╦╗" << endl;
+		cout << "\u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550"
+        "\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550"
+        "\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550"
+        "\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550"
+        "\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550"
+        "\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2566\u2557"
+        << endl;
 		printCards(dealer.getCurrentHand());
-		cout << "╠══════════════════════════════════════════════════════════════╬╣" << endl;
+		cout << "\u2560\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550"
+        "\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550"
+        "\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550"
+        "\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550"
+        "\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550"
+        "\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u256C\u2563"
+        << endl;
 		printCards(player.getCurrentHand());
-		cout << "╠╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╦╬╣" << endl;
-		cout << "╚╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╩╝" << endl;
+		cout << "\u2560\u2566\u2566\u2566\u2566\u2566\u2566\u2566\u2566\u2566"
+        "\u2566\u2566\u2566\u2566\u2566\u2566\u2566\u2566\u2566\u2566\u2566"
+        "\u2566\u2566\u2566\u2566\u2566\u2566\u2566\u2566\u2566\u2566\u2566"
+        "\u2566\u2566\u2566\u2566\u2566\u2566\u2566\u2566\u2566\u2566\u2566"
+        "\u2566\u2566\u2566\u2566\u2566\u2566\u2566\u2566\u2566\u2566\u2566"
+        "\u2566\u2566\u2566\u2566\u2566\u2566\u2566\u2566\u2566\u256C\u2563"
+        << endl;
+		cout << "\u255A\u2569\u2569\u2569\u2569\u2569\u2569\u2569\u2569\u2569"
+        "\u2569\u2569\u2569\u2569\u2569\u2569\u2569\u2569\u2569\u2569\u2569"
+        "\u2569\u2569\u2569\u2569\u2569\u2569\u2569\u2569\u2569\u2569\u2569"
+        "\u2569\u2569\u2569\u2569\u2569\u2569\u2569\u2569\u2569\u2569\u2569"
+        "\u2569\u2569\u2569\u2569\u2569\u2569\u2569\u2569\u2569\u2569\u2569"
+        "\u2569\u2569\u2569\u2569\u2569\u2569\u2569\u2569\u2569\u2569\u255D"
+        << endl;
 
 		cout << "The dealer's sum is " << dealerSum << endl << endl;
 		cout << "Your sum is " << playerSum << endl << endl;
